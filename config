@@ -1,0 +1,9 @@
+#!/bin/bash
+
+project_full_path="/home/adam/Code/mysite"
+
+#Username at remote server
+user="root"
+
+#IP of remote server
+address="51.77.195.170"
