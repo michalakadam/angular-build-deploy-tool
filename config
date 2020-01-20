@@ -17,3 +17,6 @@ remote_repo_local_name="origin"
 
 #name of remote repository on remote machine
 remote_repo_server_name="origin"
+
+#location of built webadd on webserver
+built_project_location="/var/www/"
