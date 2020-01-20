@@ -1,9 +1,19 @@
 #!/bin/bash
 
-project_full_path="/home/adam/Code/mysite"
+#absolute location of git repo on local machine
+source_location_locally="/home/adam/Code/mysite"
+
+#absolute location of git repo on remote server
+source_location_remotely="/root/Code/adam-michalak.site"
 
 #Username at remote server
 user="root"
 
 #IP of remote server
 address="51.77.195.170"
+
+#name of remote repository on local machine
+remote_repo_local_name="origin"
+
+#name of remote repository on remote machine
+remote_repo_server_name="origin"
