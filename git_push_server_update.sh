@@ -9,7 +9,7 @@ cd $project_full_path
 #Push changes to remote repo
 git push origin master
 if [ $? -eq 0 ]; then
-	echo "Changes successfully pushed to git repository"
+	echo "Push attempt successful"
 fi
 
 #Inform server about changes being pushed
