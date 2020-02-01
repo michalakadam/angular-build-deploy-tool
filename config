@@ -7,7 +7,7 @@ source_location_locally
 source_location_remotely
 
 #Username at remote server
-root_name
+su_name
 
 #IP of remote server
 ip_address
