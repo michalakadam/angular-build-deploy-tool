@@ -15,8 +15,9 @@ is_action_successful(){
 }
 
 #get and edit config file
-curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/config -o $(pwd)/config_test
-is_action_successful "config file" $? "downloaded from github.com/michalakadam/angular-build-deploy-tool repository"
+script_name="config"
+curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o $(pwd)/$script_name
+is_action_successful "$script_name file" $? "downloaded from github.com/michalakadam/angular-build-deploy-tool repository"
 
 #fill config file with user's values
 
@@ -35,21 +36,20 @@ gather_input_from_user(){
 		fi		
 	done 
 		add_to_config_file $variable_name $value
+		echo -e "\n"
 }
 
 add_to_config_file(){
 	variable_name=$1
 	value=$2
-	echo $variable_name
-	echo $value
-	sed -i "s@$variable_name@$variable_name=\"$value\"@g" $(pwd)/config_test
+	sed -i "s@$variable_name@$variable_name=\"$value\"@g" $(pwd)/config
 }
 
 gather_input_from_user source_location_locally "absolute path of your angular project folder on your local machine"
 
 gather_input_from_user source_location_remotely "absolute path of your angular project folder on the remote server"
 
-gather_input_from_user root_name "super user name at the remote server" "root"
+gather_input_from_user su_name "super user name at the remote server" "root"
 
 gather_input_from_user ip_address "ip address of the remote server"
 
@@ -59,4 +59,18 @@ gather_input_from_user remote_repo_server_name "name of remote repository on the
 
 gather_input_from_user built_project_location "location for compiled webapp on remote server" "/var/www"
 
+#Load configuration provided by user from config file
+source $(pwd)/config
+
+#get script for local machine
+script_name=git_push_server_update.sh
+curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o $(pwd)/$script_name
+is_action_successful "$script_name file" $? "downloaded from github.com/michalakadam/angular-build-deploy-tool repository"
+
+echo su_name $su_name
+echo ip_address $ip_address
+#download remote server script to remote server
+script_name=pull_and_build.sh
+ssh $su_name@$ip_address curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o $source_location_remotely/$script_name
+is_action_successful "$script_name file" $? "downloaded from repository to $ip_address at $source_location_remotely"
 
