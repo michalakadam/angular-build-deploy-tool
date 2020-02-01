@@ -1,22 +1,22 @@
 #!/bin/bash
 
 #absolute location of git repo on local machine
-source_location_locally="/home/adam/Code/mysite"
+source_location_locally
 
 #absolute location of git repo on remote server
-source_location_remotely="/root/Code/adam-michalak.site"
+source_location_remotely
 
 #Username at remote server
-user="root"
+root_name
 
 #IP of remote server
-address="51.77.195.170"
+ip_address
 
 #name of remote repository on local machine
-remote_repo_local_name="origin"
+remote_repo_local_name
 
 #name of remote repository on remote machine
-remote_repo_server_name="origin"
+remote_repo_server_name
 
-#location of built webadd on webserver
-built_project_location="/var/www/"
+#location of built webapp on webserver
+built_project_location
