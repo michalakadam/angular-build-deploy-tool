@@ -69,6 +69,7 @@ is_action_successful "$script_name file" $? "downloaded from github.com/michalak
 
 #download remote server script to remote server
 script_name=pull_and_build.sh
-ssh $su_name@$ip_address "curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o $source_location_remotely/$script_name && sudo chmod u+x $source_location_remotely/$script_name"
+executable_script_name=deploy
+ssh $su_name@$ip_address "curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name > /usr/bin/$executable_script_name && sudo chmod u+x /usr/bin/$executable_script_name"
 is_action_successful "$script_name file" $? "downloaded from repository to $ip_address at $source_location_remotely"
 

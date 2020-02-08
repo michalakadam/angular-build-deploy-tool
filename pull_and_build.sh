@@ -1,21 +1,24 @@
 #!/bin/bash
 
+source_location=$1
+repo_name=$2
+built_project_location=$3
 echo "Remote server triggered, attempting to pull changes from remote repository."
 
-echo "Opening project directory $1"
-cd $1
+echo "Opening project directory $source_location"
+cd $source_location
 
 #make sure that pushed changes are already there
 sleep 3
 
-git pull $2 master
+git pull $repo_name master
 
 ng build --prod
 if [ $? -eq 0 ]; then
 	echo "Project built successfully."
 fi
 
-cp -r ./dist $3
+cp -r ./dist $built_project_location
 if [ $? -eq 0 ]; then
         echo "Changes deployed!"
 fi
