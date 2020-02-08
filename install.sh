@@ -73,6 +73,10 @@ deployment_script_config
 deploy.sh
 EOT
 
+cd $source_location_locally
+git add .gitignore
+git commit -m "ignore files related to deployment script"
+
 #get script for local machine
 script_name=git_push_server_update.sh
 sudo curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o $source_location_locally/deploy.sh
