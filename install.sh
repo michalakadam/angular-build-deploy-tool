@@ -74,7 +74,7 @@ EOT
 
 #get script for local machine
 script_name=git_push_server_update.sh
-curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o /usr/bin/deploy
+sudo curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name > /usr/bin/deploy
 
 #load config file in the deployment script
 sed -i "s@CONFIG_FILE_LOCATION@$source_location_locally/deployment_script_config@g" /usr/bin/deploy
