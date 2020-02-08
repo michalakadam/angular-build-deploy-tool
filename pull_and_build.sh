@@ -15,7 +15,7 @@ git pull $repo_name master
 if [ $? -eq 1 ]; then
         echo "Deployment not successful."
 	exit 1
-fi
+fi 
 
 echo "Building project with Angular CLI..."
 ng build --prod

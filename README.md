@@ -25,18 +25,16 @@ Run the installation script by typing
 `./install_angular_build_deploy_tool.sh`
 <br /><br />
 Fill all the required information when prompted by the installation script.
-<br /> The tool is ready. Now everytime you want to deploy commited and pushed changes to the remote server type (in source code directory) 
+<br /> The tool is ready. 
+<br /> Now everytime you want to deploy commited and pushed changes to the remote server type (in source code directory) 
 <br />
 `./deploy.sh`
 <br />
 If everything goes well, you can see your local changes in the deployed webapp. 
 <br />
 
-### Improvement ideas
-
-* make it possible to work with multiple webpages
-* add options of functionality customization, eg. changing git branch, deployment without running tests.
-<br /><br />
+### deploy.sh flags
+-nt, --no-tests skip unit tests execution 
 
 ### Further reading
 
