@@ -25,7 +25,7 @@ Run the installation script by typing
 `./install_angular_build_deploy_tool.sh`
 <br /><br />
 Fill all the required information when prompted by the installation script.
-<br /> The tool is ready. Now everytime you want to deploy commited changes to the remote server type (in source code directory) 
+<br /> The tool is ready. Now everytime you want to deploy commited and pushed changes to the remote server type (in source code directory) 
 <br />
 `./deploy.sh`
 <br />

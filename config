@@ -12,9 +12,6 @@ su_name
 #IP of remote server
 ip_address
 
-#name of remote repository on local machine
-remote_repo_local_name
-
 #name of remote repository on remote machine
 remote_repo_server_name
 

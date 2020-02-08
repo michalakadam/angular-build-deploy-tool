@@ -55,8 +55,6 @@ gather_input_from_user su_name "super user name at the remote server" "root"
 
 gather_input_from_user ip_address "ip address of the remote server"
 
-gather_input_from_user remote_repo_local_name "name of remote repository on local machine" "origin"
-
 gather_input_from_user remote_repo_server_name "name of remote repository on the server" "origin"
 
 gather_input_from_user built_project_location "location for compiled webapp on remote server" "/var/www"
@@ -79,7 +77,7 @@ EOT
 script_name=git_push_server_update.sh
 sudo curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o $source_location_locally/deploy.sh
 
-sudo chmod u+x $source_location_locally/deploy.sh
+sudo chmod a+x $source_location_locally/deploy.sh
 
 #load config file in the deployment script
 sudo sed -i "s@CONFIG_FILE_LOCATION@$source_location_locally/deployment_script_config@g" $source_location_locally/deploy.sh
