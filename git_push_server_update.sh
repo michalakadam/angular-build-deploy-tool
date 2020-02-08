@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Load configuration from a file
-source ./config
+source CONFIG_FILE_LOCATION
 
 #Go to code directory
 echo "Opening project directory $source_location_locally"

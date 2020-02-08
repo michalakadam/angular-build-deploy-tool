@@ -62,17 +62,22 @@ gather_input_from_user built_project_location "location for compiled webapp on r
 #Load configuration provided by user from config file
 source $(pwd)/config
 
-#get script for local machine
-script_name=git_push_server_update.sh
-curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o $(pwd)/$script_name
-is_action_successful "$script_name file" $? "downloaded from github.com/michalakadam/angular-build-deploy-tool repository"
+#move config file to project folder
+mv $(pwd)/config source_location_locally/deployment_script_config 
 
-#add downloaded files to .gitignore
+#add config file to project .gitignore
 cat <<EOT >> source_location_locally/.gitignore
 
 #files related to Angular project deployment
-config
+deployment_script_config
 EOT
+
+#get script for local machine
+script_name=git_push_server_update.sh
+curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o /usr/bin/deploy
+
+#load config file in the deployment script
+sed -i "s@CONFIG_FILE_LOCATION@$source_location_locally/deployment_script_config@g" /usr/bin/deploy
 
 #download remote server script to remote server
 script_name=pull_and_build.sh
