@@ -14,6 +14,8 @@ is_action_successful(){
 	echo -e "\n"
 }
 
+sudo echo "Welcome to Angular deployment installation!"
+
 #get and edit config file
 script_name="config"
 curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o $(pwd)/$script_name
@@ -66,7 +68,7 @@ source $(pwd)/config
 cp $(pwd)/config $source_location_locally/deployment_script_config 
 
 #add config file to project .gitignore
-cat <<EOT >> source_location_locally/.gitignore
+cat <<EOT >> $source_location_locally/.gitignore
 
 #files related to Angular project deployment
 deployment_script_config
@@ -77,7 +79,7 @@ script_name=git_push_server_update.sh
 sudo curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name > /usr/bin/deploy
 
 #load config file in the deployment script
-sed -i "s@CONFIG_FILE_LOCATION@$source_location_locally/deployment_script_config@g" /usr/bin/deploy
+sudo sed -i "s@CONFIG_FILE_LOCATION@$source_location_locally/deployment_script_config@g" /usr/bin/deploy
 
 #download remote server script to remote server
 script_name=pull_and_build.sh
