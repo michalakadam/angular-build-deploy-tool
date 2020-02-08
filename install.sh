@@ -73,6 +73,7 @@ deployment_script_config
 deploy.sh
 EOT
 
+echo "Committing changes in project's .gitignore file..."
 cd $source_location_locally
 git add .gitignore
 git commit -m "ignore files related to deployment script"
