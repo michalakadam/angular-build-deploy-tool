@@ -80,4 +80,5 @@ executable_script_name=deploy
 ssh $su_name@$ip_address "curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name > /usr/bin/$executable_script_name && sudo chmod u+x /usr/bin/$executable_script_name"
 is_action_successful "$script_name file" $? "downloaded from repository to $ip_address at $source_location_remotely"
 
-
+#remove installation script when the job is done
+rm -- "$0"
