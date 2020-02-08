@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#absolute location of git repo on local machine
+source_location_locally
+
+#absolute location of git repo on remote server
+source_location_remotely
+
+#Username at remote server
+su_name
+
+#IP of remote server
+ip_address
+
+#name of remote repository on local machine
+remote_repo_local_name
+
+#name of remote repository on remote machine
+remote_repo_server_name
+
+#location of built webapp on webserver
+built_project_location
