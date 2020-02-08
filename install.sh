@@ -67,9 +67,17 @@ script_name=git_push_server_update.sh
 curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o $(pwd)/$script_name
 is_action_successful "$script_name file" $? "downloaded from github.com/michalakadam/angular-build-deploy-tool repository"
 
+#add downloaded files to .gitignore
+cat <<EOT >> source_location_locally/.gitignore
+
+#files related to Angular project deployment
+config
+EOT
+
 #download remote server script to remote server
 script_name=pull_and_build.sh
 executable_script_name=deploy
 ssh $su_name@$ip_address "curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name > /usr/bin/$executable_script_name && sudo chmod u+x /usr/bin/$executable_script_name"
 is_action_successful "$script_name file" $? "downloaded from repository to $ip_address at $source_location_remotely"
+
 
