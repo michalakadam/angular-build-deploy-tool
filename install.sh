@@ -72,21 +72,22 @@ cat <<EOT >> $source_location_locally/.gitignore
 
 #files related to Angular project deployment
 deployment_script_config
+deploy.sh
 EOT
 
 #get script for local machine
 script_name=git_push_server_update.sh
-sudo curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o /usr/bin/deploy
+sudo curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name -o $source_location_locally/deploy.sh
 
-sudo chmod u+x /usr/bin/deploy
+sudo chmod u+x $source_location_locally/deploy.sh
 
 #load config file in the deployment script
-sudo sed -i "s@CONFIG_FILE_LOCATION@$source_location_locally/deployment_script_config@g" /usr/bin/deploy
+sudo sed -i "s@CONFIG_FILE_LOCATION@$source_location_locally/deployment_script_config@g" $source_location_locally/deploy.sh
 
 #download remote server script to remote server
 script_name=pull_and_build.sh
 ssh $su_name@$ip_address "curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/$script_name > /usr/bin/$script_name && sudo chmod u+x /usr/bin/$script_name"
-is_action_successful "$script_name file" $? "downloaded from repository to $ip_address at $source_location_remotely"
+is_action_successful "$script_name file" $? "downloaded from repository to $ip_address at /usr/bin/$script_name"
 
 #remove installation script when the job is done
 rm $(pwd)/config

@@ -2,7 +2,7 @@
 
 ### Requirements
 * access over ssh to remote server hosting webapp
-* webapp already served using one of [web delivery tools](https://stackshare.io/stackups/apache-httpd-vs-jetty-vs-nginx)
+* webapp already served using one of nginx(https://nginx.org/en/docs/)
 * code of the webapp stored in Github repository
 
 ### Instructions
@@ -25,9 +25,9 @@ Run the installation script by typing
 `./install_angular_build_deploy_tool.sh`
 <br /><br />
 Fill all the required information when prompted by the installation script.
-<br /> The tool is ready. Now everytime you want to deploy commited changes to the remote server type 
+<br /> The tool is ready. Now everytime you want to deploy commited changes to the remote server type (in source code directory) 
 <br />
-`deploy`
+`./deploy.sh`
 <br />
 If everything goes well, you can see your local changes in the deployed webapp. 
 <br />

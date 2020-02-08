@@ -17,10 +17,14 @@ if [ $? -eq 1 ]; then
 	exit 1
 fi
 
+echo "Building project with Angular CLI..."
 ng build --prod
 if [ $? -eq 0 ]; then
 	echo "Project built successfully."
 fi
+
+sudo systemctl restart nginx
+echo "nginx restarted"
 
 cp -r ./dist $built_project_location
 if [ $? -eq 0 ]; then
