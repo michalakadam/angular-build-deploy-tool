@@ -63,7 +63,7 @@ gather_input_from_user built_project_location "location for compiled webapp on r
 source $(pwd)/config
 
 #move config file to project folder
-mv $(pwd)/config source_location_locally/deployment_script_config 
+cp $(pwd)/config $source_location_locally/deployment_script_config 
 
 #add config file to project .gitignore
 cat <<EOT >> source_location_locally/.gitignore
@@ -86,4 +86,5 @@ ssh $su_name@$ip_address "curl https://raw.githubusercontent.com/michalakadam/an
 is_action_successful "$script_name file" $? "downloaded from repository to $ip_address at $source_location_remotely"
 
 #remove installation script when the job is done
+rm $(pwd)/config
 rm -- "$0"
