@@ -13,16 +13,16 @@
 <br /><br />
 Download installation script using *curl*
 <br />
-`curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/install.sh -o ~/install_angular_build_deploy_tool.sh
+`curl https://raw.githubusercontent.com/michalakadam/angular-build-deploy-tool/master/install.sh -o ./install_angular_build_deploy_tool.sh
 `
 <br /><br />
 Make the installation script executable by running 
 <br />
-`chmod u+x ~/install_angular_build_deploy_tool.sh`
+`chmod u+x ./install_angular_build_deploy_tool.sh`
 <br /><br />
 Run the installation script by typing 
 <br />
-`~/install_angular_build_deploy_tool.sh`
+`./install_angular_build_deploy_tool.sh`
 <br /><br />
 Fill all the required information when prompted by the installation script.
 <br /> The tool is ready. Now everytime you want to deploy commited changes to the remote server type 
